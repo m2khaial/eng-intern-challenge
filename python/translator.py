@@ -49,11 +49,11 @@ class BrailleTranslator:
         english_text = ""
         is_capital = False
         is_number = False
-        
+
         for i in range(0, len(self.braille_text), 6):
             braille_char = self.braille_text[i:i+6]
             english_char = self.BRAILLE_TO_ENGLISH.get(braille_char, "")
-            
+
             if english_char == "CAPITAL":
                 is_capital = True
                 continue
@@ -69,7 +69,7 @@ class BrailleTranslator:
                 is_number = False
 
             english_text += english_char
-            
+
         return english_text
   
     #Create a class that handles english to braille
