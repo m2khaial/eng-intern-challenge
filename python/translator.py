@@ -95,12 +95,27 @@ class EnglishTranslator:
         self.english_text = english_text
 
     def translate_to_braille(self):
-        #initialize empty string to store the translated braille text
+        #Initialize variables
         braille_text = ""
+        is_number = False
 # Loop through each character in the English input
+        for char in self.english_text:
         # For each English character, determine the corresponding Braille character
-        #Check if the character is uppercase or a number and
+            if char.isdigit():
+                if not is_number:
+                    braille_text += self.ENGLISH_TO_BRAILLE["NUM"]
+                    is_number = True
+                braille_char = self.ENGLISH_TO_BRAILLE[char]
+                #Check if the character is uppercase or a number and
         #add the corresponding braille symbol
+            elif char.isupper():
+                braille_text += self.ENGLISH_TO_BRAILLE["CAPITAL"]
+                braille_char = self.ENGLISH_TO_BRAILLE[char.lower()]
+                is_number = False  # Reset number flag
+            else:
+                braille_char = self.ENGLISH_TO_BRAILLE[char]
+                is_number = False  # Reset number flag
         # Append the translated Braille character to braille_text
+            braille_text += braille_char
         #output translated string into terminal
         return braille_text
