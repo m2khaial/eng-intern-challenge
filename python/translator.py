@@ -25,9 +25,23 @@ class Translator:
             # Use the object to translate to Braille
             self.translated_text = english_translator.to_braille()
         return self.translated_text
-        
+
     #Create a class that handles braille to english
 class BrailleTranslator:
+    # Mapping from Braille to English
+    BRAILLE_TO_ENGLISH = {
+        "O.....": "a", "O.O...": "b", "OO....": "c", "OO.O..": "d", "O..O..": "e",
+        "OOO...": "f", "OOOO..": "g", "O.OO..": "h", ".OO...": "i", ".OOO..": "j",
+        "O...O.": "k", "O.O.O.": "l", "OO..O.": "m", "OO.OO.": "n", "O..OO.": "o",
+        "OOO.O.": "p", "OOOOO.": "q", "O.OOO.": "r", ".OO.O.": "s", ".OOOO.": "t",
+        "O...OO": "u", "O.O.OO": "v", ".OOO.O": "w", "OO..OO": "x", "OO.OOO": "y",
+        "O..OOO": "z",
+        ".O.OOO": "0", ".OOO..": "1", ".OOO.O": "2", ".OOOO.": "3", ".OOOOO": "4",
+        ".O.OO.": "5", "OOO.OO": "6", "OOOOOO": "7", "O.OOOO": "8", "OOO...": "9",
+        "......": " ",  # Space
+        ".....O": "CAPITAL",  # Capital follows
+        ".O.O.O": "NUM"       # Number follows
+    }
     def __init__(self, braille_text):
         self.braile_text = braille_text
     
@@ -43,7 +57,20 @@ class BrailleTranslator:
     
     #Create a class that handles english to braille
 class EnglishTranslator:
-
+    # Mapping from English to Braille
+    ENGLISH_TO_BRAILLE = {
+        "a": "O.....", "b": "O.O...", "c": "OO....", "d": "OO.O..", "e": "O..O..",
+        "f": "OOO...", "g": "OOOO..", "h": "O.OO..", "i": ".OO...", "j": ".OOO..",
+        "k": "O...O.", "l": "O.O.O.", "m": "OO..O.", "n": "OO.OO.", "o": "O..OO.",
+        "p": "OOO.O.", "q": "OOOOO.", "r": "O.OOO.", "s": ".OO.O.", "t": ".OOOO.",
+        "u": "O...OO", "v": "O.O.OO", "w": ".OOO.O", "x": "OO..OO", "y": "OO.OOO", 
+        "z": "O..OOO",
+        "0": ".O.OOO", "1": ".OOO..", "2": ".OOO.O", "3": ".OOOO.", "4": ".OOOOO",
+        "5": ".O.OO.", "6": "OOO.OO", "7": "OOOOOO", "8": "O.OOOO", "9": "OOO...",
+        " ": "......",  # Space
+        "CAPITAL": ".....O",  # Capital follows
+        "NUM": ".O.O.O"       # Number follows
+    }
     def __init__(self, english_text):
         # Initialize with the English input text
         self.english_text = english_text
