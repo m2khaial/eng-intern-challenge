@@ -3,6 +3,11 @@
 # determine if you need which translator to use)
     #Create a translator class to handle the input language
     #  and the language to translate to
+class Translator:
+    def __init__(self, input_text):
+        #Initialize input text
+        self.input_text = input_text
+        self.translated_text = ""
 #Determine if string is in english or braille (will 
 
 #Covert to either english or braille based on the input 
