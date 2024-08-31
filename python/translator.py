@@ -104,11 +104,11 @@ class EnglishTranslator:
             elif char.isupper():
                 braille_text += self.ENGLISH_TO_BRAILLE["CAPITAL"]
                 braille_char = self.ENGLISH_TO_BRAILLE[char.lower()]
-                is_number = False  # Reset number flag
+                is_number = False
             else:
                 braille_char = self.ENGLISH_TO_BRAILLE[char]
-                is_number = False  # Reset number flag
+                is_number = False
 
             braille_text += braille_char
-            
+
         return braille_text
