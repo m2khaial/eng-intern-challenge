@@ -9,9 +9,15 @@ class Translator:
         self.input_text = input_text
         self.translated_text = ""
 #Determine if string is in english or braille (will 
+    def determine_language(self):
+        if set(self.input_text).issubset({'O', '.'}):
+            return 'braille'
+        else:
+            return 'english'
 
 #Covert to either english or braille based on the input 
 # language
     #Create a class that handles braille to english
+    #split every sixc characters to get the letter
     #Create a class that handles english to braille
 #output translated string into terminal
