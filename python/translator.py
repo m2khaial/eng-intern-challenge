@@ -14,10 +14,26 @@ class Translator:
             return 'braille'
         else:
             return 'english'
+    
+    def translate(self):
+        input_language = self.determine_language()
 
+        if input_language == 'braille':
+             # If the input is Braille, create a BrailleTranslator object
+            braille_translator = BrailleTranslator(self.input_text)
+            self.translated_text = braille_translator.to_english()
+        elif input_language == 'english':
+            # If the input is English, create a EnglishTranslator object
+            english_translator = EnglishTranslator(self.input_text)
+            # Use the object to translate to Braille
+            self.translated_text = english_translator.to_braille()
+        return self.translated_text
 #Covert to either english or braille based on the input 
 # language
     #Create a class that handles braille to english
+class BrailleTranslator:
+
     #split every sixc characters to get the letter
     #Create a class that handles english to braille
+class EnglishTranslator:
 #output translated string into terminal
