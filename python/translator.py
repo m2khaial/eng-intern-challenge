@@ -28,7 +28,6 @@ class Translator:
 
     #Create a class that handles braille to english
 class BrailleTranslator:
-    # Mapping from Braille to English
     BRAILLE_TO_ENGLISH = {
         "O.....": "a", "O.O...": "b", "OO....": "c", "OO.O..": "d", "O..O..": "e",
         "OOO...": "f", "OOOO..": "g", "O.OO..": "h", ".OO...": "i", ".OOO..": "j",
@@ -42,21 +41,19 @@ class BrailleTranslator:
         ".....O": "CAPITAL",  # Capital follows
         ".O.O.O": "NUM"       # Number follows
     }
+
     def __init__(self, braille_text):
-        self.braile_text = braille_text
+        self.braille_text = braille_text
 
     def translate_to_english(self):
-        #initialize empty string to store the translated english text
         english_text = ""
-        #Initialize capital and number as false
         is_capital = False
         is_number = False
-        #split every six characters to get the letter using for loop
+        
         for i in range(0, len(self.braille_text), 6):
             braille_char = self.braille_text[i:i+6]
             english_char = self.BRAILLE_TO_ENGLISH.get(braille_char, "")
-        #For each braille letter, determine english letter
-        #Check for special symbols
+            
             if english_char == "CAPITAL":
                 is_capital = True
                 continue
@@ -70,10 +67,11 @@ class BrailleTranslator:
 
             if is_number:
                 is_number = False
-        #Append the translated english letter to english_text
+
             english_text += english_char
+            
         return english_text
-    
+  
     #Create a class that handles english to braille
 class EnglishTranslator:
     # Mapping from English to Braille
