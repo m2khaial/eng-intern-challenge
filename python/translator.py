@@ -32,8 +32,33 @@ class Translator:
 # language
     #Create a class that handles braille to english
 class BrailleTranslator:
-
-    #split every sixc characters to get the letter
+    def __init__(self, braille_text):
+        self.braile_text = braille_text
+    
+    def translate_to_english(self):
+        #initialize empty string to store the translated english text
+        english_text = ""
+        #split every six characters to get the letter using for loop
+        #For each braille letter, determine english letter
+        #Check for special symbols
+        #Append the translated english letter to english_text
+        
+        return english_text
+    
     #Create a class that handles english to braille
 class EnglishTranslator:
-#output translated string into terminal
+
+    def __init__(self, english_text):
+        # Initialize with the English input text
+        self.english_text = english_text
+
+    def translate_to_braille(self):
+        #initialize empty string to store the translated braille text
+        braille_text = ""
+# Loop through each character in the English input
+        # For each English character, determine the corresponding Braille character
+        #Check if the character is uppercase or a number and
+        #add the corresponding braille symbol
+        # Append the translated Braille character to braille_text
+        #output translated string into terminal
+        return braille_text
